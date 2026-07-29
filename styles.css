@@ -88,11 +88,11 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
-    min-width: 702px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .glitch {
@@ -158,16 +158,21 @@ body {
     font-weight: 300;
 }
 
+.terminal-prompt-wrapper {
+    width: 100%;
+    overflow: visible;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
 .terminal-prompt {
     display: flex;
     align-items: center;
     gap: 8px;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
     flex-wrap: wrap;
     justify-content: center;
-    min-height: 24px;
-    min-width:749px;
 }
 
 .prompt-user {
@@ -225,15 +230,11 @@ body {
 
 @keyframes typewriter {
     from { width: 0; }
-    to { width: 74%; }
+    to { width: 100%; }
 }
 
 .prompt-text {
-    overflow: hidden;
     white-space: nowrap;
-    width: 0;
-    max-width:500px;
-    animation: typewriter 3s steps(52) 0.5s forwards;
     display: inline-block;
 }
 
@@ -605,9 +606,38 @@ body {
         font-size: 0.9rem;
     }
 
+    .terminal-prompt {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .prompt-user, .prompt-host {
+        font-size: 0.8rem;
+    }
+
+    .prompt-text {
+        font-size: 0.7rem;
+        max-width: 80%;
+    }
+
     .section-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .section-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .terminal-prompt-wrapper {
+        align-self: center;
+        max-width: 90%;
+    }
+
+    .prompt-text {
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 
     .expand-btn {

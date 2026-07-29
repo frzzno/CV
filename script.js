@@ -109,13 +109,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Fix typewriter cursor positioning
+
+    // Fix typewriter animation with proper width calculation
     const promptText = document.querySelector('.prompt-text');
     if (promptText) {
-        // Remove the border after animation completes to avoid duplicate cursor
-        setTimeout(() => {
-            promptText.style.borderRight = 'none';
-        }, 3500); // After animation completes (3s + 0.5s delay)
+        // Store the full text
+        const fullText = promptText.textContent;
+
+        // Start with empty text
+        promptText.textContent = '';
+
+        // Animate character by character
+        let charIndex = 0;
+        const typingInterval = setInterval(() => {
+            if (charIndex < fullText.length) {
+                promptText.textContent += fullText.charAt(charIndex);
+                charIndex++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 50); // Adjust speed (50ms per character)
     }
 
     // Add hover effects to skill buttons
