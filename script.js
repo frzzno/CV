@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c AESTHETIC: DARK CYBERPUNK ', 'background: #000; color: #ff00aa; font-family: "Fira Code", monospace;');
 
     // Expand/Collapse Section Functionality
-    const expandButtons = document.querySelectorAll('.expand-btn');
+    const expandLinks = document.querySelectorAll('.expand-link');
     const collapseButtons = document.querySelectorAll('.collapse-btn');
     const sections = document.querySelectorAll('.expandable-section');
 
@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         section.classList.remove('active');
     });
 
-    // Expand button click handler
-    expandButtons.forEach(button => {
-        button.addEventListener('click', function() {
+    // Expand link click handler
+    expandLinks.forEach(link => {
+        link.addEventListener('click', function() {
             const targetId = this.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
 
@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Toggle target section
             targetSection.classList.toggle('active');
+
+            // Update active link styling
+            expandLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
 
             // Scroll to section if it's being opened
             if (targetSection.classList.contains('active')) {
@@ -47,6 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
             targetSection.classList.remove('active');
+
+            // Remove active link styling
+            const activeLink = document.querySelector(`.expand-link[data-target="${targetId}"]`);
+            if (activeLink) {
+                activeLink.classList.remove('active');
+            }
         });
     });
 
@@ -86,15 +96,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add hover effects to skill cards
-    const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.2)';
+    // Fix typewriter cursor positioning
+    const promptText = document.querySelector('.prompt-text');
+    if (promptText) {
+        // Remove the border after animation completes to avoid duplicate cursor
+        setTimeout(() => {
+            promptText.style.borderRight = 'none';
+        }, 3500); // After animation completes (3s + 0.5s delay)
+    }
+
+    // Add hover effects to skill buttons
+    const skillButtons = document.querySelectorAll('.skill-btn');
+    skillButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.2)';
         });
 
-        card.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.1)';
+        button.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.1)';
         });
     });
 
