@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            color: #333;
+        }
+        .test-results {
+            margin-top: 20px;
+        }
+        .test-pass {
+            color: green;
+            font-weight: bold;
+        }
+        .test-fail {
+            color: red;
+            font-weight: bold;
+        }
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cyberpunk Portfolio Verification</h1>
+    <p>This page verifies that all assets are properly linked and accessible.</p>
+
+    <div class="test-results">
+        <h2>Asset Verification:</h2>
+
+        <div class="test-item">
+            <span>Skill Icons:</span>
+            <ul>
+                <li id="test-photoshop">Photoshop icon: <span class="test-status">Testing...</span></li>
+                <li id="test-illustrator">Illustrator icon: <span class="test-status">Testing...</span></li>
+                <li id="test-aftereffects">After Effects icon: <span class="test-status">Testing...</span></li>
+                <li id="test-figma">Figma icon: <span class="test-status">Testing...</span></li>
+                <li id="test-indesign">InDesign icon: <span class="test-status">Testing...</span></li>
+                <li id="test-lightroom">Lightroom icon: <span class="test-status">Testing...</span></li>
+            </ul>
+        </div>
+
+        <div class="test-item">
+            <span>Sample Works:</span>
+            <ul>
+                <li id="test-sample1">Sample 1: <span class="test-status">Testing...</span></li>
+                <li id="test-sample2">Sample 2: <span class="test-status">Testing...</span></li>
+                <li id="test-sample3">Sample 3: <span class="test-status">Testing...</span></li>
+                <li id="test-sample4">Sample 4: <span class="test-status">Testing...</span></li>
+            </ul>
+        </div>
+
+        <div class="test-item">
+            <span>CSS Styles:</span>
+            <p id="test-css">styles.css: <span class="test-status">Testing...</span></p>
+        </div>
+
+        <div class="test-item">
+            <span>JavaScript:</span>
+            <p id="test-js">script.js: <span class="test-status">Testing...</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Test all assets
+        const assets = [
+            { id: 'test-photoshop', path: 'src/skillicons/photoshop.png' },
+            { id: 'test-illustrator', path: 'src/skillicons/illustrator.png' },
+            { id: 'test-aftereffects', path: 'src/skillicons/aftereffects.png' },
+            { id: 'test-figma', path: 'src/skillicons/figma.png' },
+            { id: 'test-indesign', path: 'src/skillicons/indesign.png' },
+            { id: 'test-lightroom', path: 'src/skillicons/lightroom.png' },
+            { id: 'test-sample1', path: 'src/sampleworks/sample1.png' },
+            { id: 'test-sample2', path: 'src/sampleworks/sample2.png' },
+            { id: 'test-sample3', path: 'src/sampleworks/sample3.png' },
+            { id: 'test-sample4', path: 'src/sampleworks/sample4.png' },
+            { id: 'test-css', path: 'styles.css' },
+            { id: 'test-js', path: 'script.js' }
+        ];
+
+        assets.forEach(asset => {
+            const img = new Image();
+            img.onload = function() {
+                document.getElementById(asset.id).querySelector('.test-status').textContent = 'PASS';
+                document.getElementById(asset.id).querySelector('.test-status').className = 'test-status test-pass';
+            };
+            img.onerror = function() {
+                document.getElementById(asset.id).querySelector('.test-status').textContent = 'FAIL';
+                document.getElementById(asset.id).querySelector('.test-status').className = 'test-status test-fail';
+            };
+            img.src = asset.path;
+        });
+    </script>
+</body>
+</html>

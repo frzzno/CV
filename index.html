@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Portfolio | Ulyana</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fira Code font with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section - Minimal with expandable buttons -->
+    <header class="hero">
+        <div class="terminal-scanlines"></div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="ULYANA">ULYANA</h1>
+            <!--<p class="subtitle">DESIGNER & CREATIVE TECHNOLOGIST</p> -->
+            <div class="terminal-prompt">
+                <span class="prompt-symbol">></span>
+                <span class="prompt-text">Превращаю идеи и смыслы в понятную визуальную форму.</span>
+                <span class="prompt-blink">|</span>
+            </div>
+        </div>
+
+        <!-- Expandable Section Buttons -->
+        <div class="section-buttons">
+            <button class="expand-btn" data-target="skills">SKILLS</button>
+            <button class="expand-btn" data-target="portfolio">PORTFOLIO</button>
+            <button class="expand-btn" data-target="contact">CONTACT</button>
+            <button class="expand-btn" data-target="about">ABOUT</button>
+        </div>
+    </header>
+
+    <!-- Expandable Sections (hidden by default) -->
+
+    <section class="expandable-section" id="skills">
+        <div class="section-header">
+            <h2 class="section-title">// HARD SKILLS</h2>
+            <button class="collapse-btn" data-target="skills">↑ COLLAPSE</button>
+        </div>
+        <div class="section-content">
+            <div class="skills-grid">
+                <button class="skill-btn">
+                    <img src="src/skillicons/photoshop.png" alt="Adobe Photoshop" class="skill-icon">
+                </button>
+                <button class="skill-btn">
+                    <img src="src/skillicons/illustrator.png" alt="Adobe Illustrator" class="skill-icon">
+                </button>
+                <button class="skill-btn">
+                    <img src="src/skillicons/aftereffects.png" alt="Adobe After Effects" class="skill-icon">
+                </button>
+                <button class="skill-btn">
+                    <img src="src/skillicons/figma.png" alt="Figma" class="skill-icon">
+                </button>
+                <button class="skill-btn">
+                    <img src="src/skillicons/indesign.png" alt="Adobe InDesign" class="skill-icon">
+                </button>
+                <button class="skill-btn">
+                    <img src="src/skillicons/lightroom.png" alt="Adobe Lightroom" class="skill-icon">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="expandable-section" id="portfolio">
+        <div class="section-header">
+            <h2 class="section-title">// PORTFOLIO</h2>
+            <button class="collapse-btn" data-target="portfolio">↑ COLLAPSE</button>
+        </div>
+        <div class="section-content">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="src/sampleworks/sample1.png" alt="Portfolio Sample 1" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>PROJECT ALPHA</h3>
+                        <p>UI/UX Design & Branding</p>
+                        <button class="view-full-btn" onclick="openFullView('src/sampleworks/sample1.png', 'PROJECT ALPHA', 'UI/UX Design & Branding')">VIEW FULL</button>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="src/sampleworks/sample2.png" alt="Portfolio Sample 2" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>PROJECT BETA</h3>
+                        <p>Motion Graphics & Animation</p>
+                        <button class="view-full-btn" onclick="openFullView('src/sampleworks/sample2.png', 'PROJECT BETA', 'Motion Graphics & Animation')">VIEW FULL</button>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="src/sampleworks/sample3.png" alt="Portfolio Sample 3" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>PROJECT GAMMA</h3>
+                        <p>Digital Illustration</p>
+                        <button class="view-full-btn" onclick="openFullView('src/sampleworks/sample3.png', 'PROJECT GAMMA', 'Digital Illustration')">VIEW FULL</button>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="src/sampleworks/sample4.png" alt="Portfolio Sample 4" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>PROJECT DELTA</h3>
+                        <p>Print Design & Layout</p>
+                        <button class="view-full-btn" onclick="openFullView('src/sampleworks/sample4.png', 'PROJECT DELTA', 'Print Design & Layout')">VIEW FULL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expandable-section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">// CONTACT</h2>
+            <button class="collapse-btn" data-target="contact">↑ COLLAPSE</button>
+        </div>
+        <div class="section-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">EMAIL:</span>
+                    <span class="contact-value">contact@ulyana.design</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">TELEGRAM:</span>
+                    <span class="contact-value">@ulyana_design</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">LINKEDIN:</span>
+                    <a href="https://linkedin.com/in/ulyana" target="_blank" class="contact-link">linkedin.com/in/ulyana</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">BEHANCE:</span>
+                    <a href="https://behance.net/ulyana" target="_blank" class="contact-link">behance.net/ulyana</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expandable-section" id="about">
+        <div class="section-header">
+            <h2 class="section-title">// ABOUT</h2>
+            <button class="collapse-btn" data-target="about">↑ COLLAPSE</button>
+        </div>
+        <div class="section-content">
+            <div class="about-text">
+                <p>I'm a multidisciplinary designer specializing in digital experiences and creative technology. With expertise in Adobe Creative Suite and modern design tools, I craft visually stunning solutions that bridge art and functionality.</p>
+                <p>My work spans UI/UX design, motion graphics, and digital illustration, always pushing the boundaries of what's possible in the digital realm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full View Modal for Portfolio Items -->
+    <div class="full-view-modal" id="fullViewModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeFullView()">×</button>
+            <img id="fullViewImage" src="" alt="" class="full-view-image">
+            <div class="full-view-info">
+                <h3 id="fullViewTitle"></h3>
+                <p id="fullViewDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
