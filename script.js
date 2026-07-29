@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             const targetId = this.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
+            const promptHost = document.getElementById('promptHost');
 
             // Close all other sections
             sections.forEach(section => {
@@ -31,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Toggle target section
             targetSection.classList.toggle('active');
+
+            // Update prompt host based on section
+            if (targetSection.classList.contains('active')) {
+                promptHost.textContent = targetId;
+            } else {
+                promptHost.textContent = 'main';
+            }
 
             // Update active link styling
             expandLinks.forEach(l => l.classList.remove('active'));
@@ -50,7 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const targetId = this.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
+            const promptHost = document.getElementById('promptHost');
+
             targetSection.classList.remove('active');
+
+            // Reset prompt to main when collapsed
+            promptHost.textContent = 'main';
 
             // Remove active link styling
             const activeLink = document.querySelector(`.expand-link[data-target="${targetId}"]`);
